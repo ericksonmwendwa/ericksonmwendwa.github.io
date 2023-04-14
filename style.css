@@ -76,7 +76,7 @@ body::-webkit-scrollbar-thumb:hover {
   -webkit-transition: .4s;
   transition: .4s;
   border-radius: 50%;
-  background-image: url('light.png');
+  background-image: url('../light.png');
   background-size: 20px 20px;
   background-position: center center;
   background-repeat: no-repeat;
@@ -95,7 +95,7 @@ input:checked + .slider:before {
   -ms-transform: translateX(26px);
   transform: translateX(26px);
   background-color: #1f2937;
-  background-image: url('dark.png');
+  background-image: url('../dark.png');
   background-size: 20px 20px;
   background-position: center center;
   background-repeat: no-repeat;

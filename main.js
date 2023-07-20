@@ -119,3 +119,4 @@ function scrollContainer(containerId) {
 scrollContainer("myriadlista");
 scrollContainer("athena");
 scrollContainer("urbandimensions");
+scrollContainer("extrapaints");

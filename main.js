@@ -33,8 +33,6 @@ function applyTheme() {
 
 function switchTheme(event, setMode) {
   const currentTheme = localStorage.getItem('theme');
-  console.log("currentTheme", currentTheme);
-  console.log("setMode", setMode);
 
   localStorage.setItem('theme', setMode);
 
@@ -51,14 +49,12 @@ function switchTheme(event, setMode) {
       applyTheme();
     }
   } else {
-    console.log('setting theme on load');
     // Re-apply theme on page load
     applyTheme();
   }
 }
 
 const isDay = new Date().getHours() > 6 && new Date().getHours() < 18;
-console.log("isDay", isDay);
 if (isDay) {
   switchTheme('load', 'light');
 } else {
@@ -66,8 +62,67 @@ if (isDay) {
 }
 
 
+// trailer
+function isTouchDevice() {
+  return (('ontouchstart' in window) ||
+     (navigator.maxTouchPoints > 0) ||
+     (navigator.msMaxTouchPoints > 0));
+}
+
+const trailer = document.getElementById("trailer");
+
+const usingMouse = !isTouchDevice();
+
+if (usingMouse) {
+
+  trailer.style.display = "grid";
+
+  const animateTrailer = (e, interacting) => {
+    const x = e.clientX - trailer.offsetWidth / 2,
+          y = e.clientY - trailer.offsetHeight / 2;
+    
+    const keyframes = {
+      transform: `translate(${x}px, ${y}px) scale(${interacting ? 4 : 1})`
+    }
+    
+    trailer.animate(keyframes, { 
+      duration: 800, 
+      fill: "forwards" 
+    });
+  }
+
+  const getTrailerClass = (type) => {
+    switch(type) {
+      case "link":
+        return "fa-arrow-up-right-from-square";
+      default:
+        return "fa-hand-pointer";
+    }
+  }
+
+  window.onmousemove = e => {
+    const interactable = e.target.closest(".interactable"),
+          interacting = interactable !== null;
+    
+    const cursorSvg = document.getElementById("trailer-icon");
+    
+    animateTrailer(e, interacting);
+    
+    trailer.dataset.type = interacting ? interactable.dataset.type : "";
+    
+    if(interacting) {
+      if (trailer.dataset.type === "link") {
+        cursorSvg.classList.replace("fa-hand-pointer", getTrailerClass(interactable.dataset.type));
+      } else {
+        cursorSvg.classList.replace("fa-arrow-up-right-from-square", getTrailerClass(interactable.dataset.type));
+      }
+    }
+  }
+  
+}
+
+
 // navbar
-// check for click in classlist, get the id of the clicked element and scroll to the element
 const navbar = document.getElementById("navbar");
 const offset = 105;
 navbar.addEventListener("click", function (e) {

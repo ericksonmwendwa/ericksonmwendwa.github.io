@@ -46,6 +46,39 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 
+/* trailer */
+body:hover > #trailer {
+  opacity: 1;
+}
+
+#trailer {
+  width: 20px;
+  height: 20px;
+  @apply bg-[#264653] dark:bg-[#FFE66D] text-light dark:text-dark;
+  border-radius: 20px;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  z-index: 10000;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 500ms ease;
+  display: none;
+  place-items: center;
+}
+
+#trailer:not([data-type=""]) > #trailer-icon {
+  opacity: 1;
+}
+
+#trailer-icon {
+  font-size: 8px;
+  line-height: 4px;
+  opacity: 0;
+  transition: opacity 400ms ease;
+}
+
+
 /* ui/ux screen */
 .screen {
   height: 224px;

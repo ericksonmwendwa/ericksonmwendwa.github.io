@@ -8,9 +8,23 @@
 @tailwind utilities;
 
 
+/* custom fonts */
+@font-face {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 100 144;
+  font-display: swap;
+  src: url('../assets/fonts/HelveticaNeueRegular.otf') format('opentype');
+}
+
+
 /* custom scrollbar */
 html {
   scroll-behavior: smooth;
+}
+
+body * {
+  @apply transition-colors duration-100;
 }
 
 body::-webkit-scrollbar {
@@ -32,76 +46,6 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 
-/* dark mode switch */
-.theme-switch {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #7dd3fc;
-  -webkit-transition: .4s;
-  transition: .4s;
-  border-radius: 34px;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-  border-radius: 50%;
-  background-image: url('../light.png');
-  background-size: 20px 20px;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-
-input:checked + .slider {
-  background-color: #0c4a6e;
-}
-
-input:focus + .slider {
-  outline: none;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-  background-color: #1f2937;
-  background-image: url('../dark.png');
-  background-size: 20px 20px;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-
-
 /* ui/ux screen */
 .screen {
   height: 224px;
@@ -111,4 +55,43 @@ input:checked + .slider:before {
   .screen {
     height: 400px;
   }
+}
+
+
+/* theme switch */
+.line-container {
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+.line {
+  position: relative;
+  width: 2px;
+  height: 20px; /* Initial height */
+  transition: height 0.3s linear;
+  @apply bg-[#AAAAAA];
+}
+
+.line.day {
+  @apply bg-outline dark:bg-primary;
+}
+
+.theme-icon {
+  width: 56px;
+  height: 56px;
+  position: absolute;
+  top: -64px;
+  left: -28px;
+  pointer-events: none;
+  background-color: #1f2937;
+  background-image: url('../dark.png');
+  background-size: 36px 36px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.theme-icon.day {
+  background-color: #7dd3fc;
+  background-image: url('../light.png');
 }

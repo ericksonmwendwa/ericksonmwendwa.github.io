@@ -12,113 +12,31 @@
 
 <body class="font-body">
   <div id="app" class="bg-light dark:bg-dark">
-
-    <header id="navbar" class="inset-x-0 top-0 z-50 sticky bg-light dark:bg-dark border-dark dark:border-light" x-data="{ menuOpen : false }">
-      <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
-        <div class="flex lg:flex-1">
-          <a href="./" class="-m-1.5 p-1.5">
-            <span class="sr-only">Erickson Mwendwa</span>
-            <span class="text-2xl text-dark dark:text-light tracking-wide">erickson mwendwa</span>
+    
+    <header class="fixed top-0 z-50 w-full">
+      <nav class="mt-5 relative flex justify-center">
+        <div id="navbar" class="px-8 lg:px-12 py-4 flex gap-x-6 lg:gap-x-12 lg:text-xl text-dark dark:text-gray-100 bg-primary rounded-full dark:bg-secondary border-2 border-dark dark:border-light">
+          <a href="#about" class="nav-link">
+            About
           </a>
-        </div>
-        <div class="flex lg:hidden">
-          <button @click="menuOpen = true" type="button" class="-m-2.5">
-            <span class="sr-only">Open main menu</span>
-            <div class="p-2.5 w-8 h-8 bg-light rounded-lg inline-flex items-center justify-center">
-              <i class="fa-solid fa-bars-staggered text-dark"></i>
-            </div>
-          </button>
-        </div>
-        <div class="hidden lg:flex lg:gap-x-12">
-          <a href="javascript:void(0)" @click="document.getElementById('about').scrollIntoView();" class="font-display text-xl font-semibold text-dark dark:text-gray-100 tracking-wider">
-            About me
-          </a>
-          <a href="javascript:void(0)" @click="document.getElementById('services').scrollIntoView();" class="font-display text-xl font-semibold text-dark dark:text-gray-100 tracking-wider">
+          <a href="#services" class="nav-link">
             Services
           </a>
-          <a href="javascript:void(0)" @click="document.getElementById('portfolio').scrollIntoView();" class="font-display text-xl font-semibold text-dark dark:text-gray-100 tracking-wider">
+          <a href="#portfolio" class="nav-link">
             Portfolio
           </a>
-          <a href="javascript:void(0)" @click="document.getElementById('contact').scrollIntoView();" class="font-display text-xl font-semibold text-dark dark:text-gray-100 tracking-wider">
+          <a href="#contact" class="nav-link">
             Contact
           </a>
         </div>
-        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-          <div class="theme-switch">
-            <label class="switch">
-              <input class="theme-switcher" id="theme-switcher-main" type="checkbox">
-              <span class="slider round"></span>
-            </label>
-          </div>
-        </div>
       </nav>
-      <!-- Mobile menu -->
-      <div x-show="menuOpen" class="lg:hidden" role="dialog" aria-modal="true">
-        <div class="fixed inset-0 z-50"></div>
-        <div class="bg-light dark:bg-dark fixed inset-y-0 right-0 z-50 w-full overflow-y-auto px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-          <div class="flex items-center justify-between">
-            <a href="./" class="-m-1.5 p-1.5">
-              <span class="sr-only">Erickson Mwendwa</span>
-              <span class="text-lg text-dark dark:text-light tracking-wide">erickson mwendwa</span>
-            </a>
-            <div class="flex gap-5">
-              <div class="theme-switch">
-                <label class="switch">
-                  <input class="theme-switcher" id="theme-switcher-mobile" type="checkbox">
-                  <span class="slider round"></span>
-                </label>
-              </div>
-              <button @click="menuOpen = false" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
-                <span class="sr-only">Close menu</span>
-                <div class="p-2.5 w-8 h-8 bg-light rounded-lg inline-flex items-center justify-center">
-                  <i class="fa-solid fa-xmark text-dark"></i>
-                </div>
-              </button>
-            </div>
-          </div>
-          <div class="mt-6 flow-root">
-            <div class="-my-6 divide-y divide-gray-500/10">
-              <div class="space-y-2 py-6">
-                <a
-                  href="javascript:void(0)"
-                  @click="document.getElementById('about').scrollIntoView(); menuOpen = false;"
-                  class="-mx-3 block rounded-lg py-2 px-3 font-display text-lg text-dark dark:text-gray-100 tracking-widest"
-                >
-                  About me
-                </a>
-                <a
-                  href="javascript:void(0)"
-                  @click="document.getElementById('services').scrollIntoView(); menuOpen = false;"
-                  class="-mx-3 block rounded-lg py-2 px-3 font-display text-lg  text-dark dark:text-gray-100 tracking-widest"
-                >
-                  Services
-                </a>
-                <a
-                  href="javascript:void(0)"
-                  @click="document.getElementById('portfolio').scrollIntoView(); menuOpen = false;"
-                  class="-mx-3 block rounded-lg py-2 px-3 font-display text-lg text-dark dark:text-gray-100 tracking-widest"
-                >
-                  Portfolio
-                </a>
-                <a
-                  href="javascript:void(0)"
-                  @click="document.getElementById('contact').scrollIntoView(); menuOpen = false;"
-                  class="-mx-3 block rounded-lg py-2 px-3 font-display text-lg text-dark dark:text-gray-100 tracking-widest"
-                >
-                  Contact
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </header>
 
     
-    <div class="container mx-auto px-4 lg:px-8 xl:px-0 py-8">
+    <div class="pt-24 container mx-auto px-3 lg:px-8 xl:px-0">
 
       <section id="about">
-        <div class="pb-12 bg-primary dark:bg-secondary rounded-3xl border-4 border-dark dark:border-light">
+        <div class="mt-2 pb-12 rounded-3xl border-4 border-dark dark:border-light">
           <div class="px-4 py-8 lg:p-10 xl:p-12 text-dark dark:text-light grid grid-cols-1 lg:grid-cols-2 gap-10 justify-around items-center">
             <div>
               <p class="text-4xl lg:text-6xl xl:text-8xl font-displayBold">Hello there,<br> I'm Erick</p>
@@ -134,7 +52,7 @@
         </div>
       </section>
 
-      <section id="services" class="mt-8 xl:mt-16">
+      <section id="services" class="mt-28">
         <div class="p-4 lg:p-8 text-dark dark:text-light rounded-3xl border-4 border-dark dark:border-light">
           <span class="text-xl lg:text-3xl font-semibold font-displayText tracking-wider">&lt;services&gt;</span>
           <div class="xl:ml-5 py-10 xl:px-6 xl:py-20">
@@ -228,7 +146,7 @@
         </div>
       </section>
 
-      <section id="portfolio" class="mt-8 xl:mt-16">
+      <section id="portfolio" class="mt-28">
         <div class="p-4 lg:p-8 text-dark dark:text-light rounded-3xl border-4 border-dark dark:border-light">
           <span class="text-xl lg:text-3xl font-semibold font-displayText tracking-wider">&lt;portfolio&gt;</span>
           <div class="py-10 xl:py-20">
@@ -416,7 +334,7 @@
         </div>
       </section>
 
-      <section id="contact" class="mt-8 xl:mt-16">
+      <section id="contact" class="mt-28">
         <div class="p-4 lg:p-8 text-dark dark:text-light rounded-3xl border-4 border-dark dark:border-light">
           <span class="text-xl lg:text-3xl font-semibold font-displayText tracking-wider">&lt;contact&gt;</span>
           <div class="xl:ml-5 py-10 xl:px-6">
@@ -472,6 +390,17 @@
             </div>
           </div>
           <span class="text-xl lg:text-3xl font-semibold font-displayText tracking-wider">&lt;/contact&gt;</span>
+        </div>
+      </section>
+
+      <section class="my-8">
+        <div
+          id="circadian"
+          class="
+            relative mt-40 pt-0 pb-12
+            flex justify-between items-center w-full h-20
+          "
+        >
         </div>
       </section>
 

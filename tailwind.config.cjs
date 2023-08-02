@@ -25,8 +25,9 @@ module.exports = {
         'display': ['Courgette', 'sans-serif'],
         'displayBold': ['"Fredoka One"', 'sans-serif'],
         'displayText': ['"Fira Code"', 'sans-serif'],
-        'body': ['"Roboto Flex"', 'sans-serif'],
-      }
+        'body': ['"Helvetica Neue"', 'sans'],
+      },
+      backdropBlur: ['hover'],
     },
   },
   plugins: [],

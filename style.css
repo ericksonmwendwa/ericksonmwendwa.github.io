@@ -1,8 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,15 +5,54 @@
 
 /* custom fonts */
 @font-face {
-  font-family: 'Helvetica Neue';
+  font-family: 'SF Pro Display';
   font-style: normal;
-  font-weight: 100 144;
+  font-weight: 400;
   font-display: swap;
-  src: url('../assets/fonts/HelveticaNeueRegular.otf') format('opentype');
+  src: url('../assets/fonts/SFProDisplayRegular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/fonts/SFProDisplayBold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/SFProTextRegular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../assets/fonts/SFProTextMedium.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'SF Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/SFMonoRegular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'SF Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../assets/fonts/SFMonoMedium.otf') format('opentype');
 }
 
 
-/* custom scrollbar */
 html {
   scroll-behavior: smooth;
 }
@@ -27,6 +61,8 @@ body * {
   @apply transition-colors duration-100;
 }
 
+
+/* custom scrollbar */
 body::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -45,6 +81,12 @@ body::-webkit-scrollbar-thumb:hover {
   background-color: #aaa;
 }
 
+/* custom heading */
+.display-heading {
+  margin: 0px;
+  font-size: clamp(40px, 8vw, 80px);
+}
+
 
 /* trailer */
 body:hover > #trailer {
@@ -54,7 +96,7 @@ body:hover > #trailer {
 #trailer {
   width: 20px;
   height: 20px;
-  @apply bg-[#264653] dark:bg-[#FFE66D] text-light dark:text-dark;
+  @apply bg-dark dark:bg-light text-light dark:text-dark;
   border-radius: 20px;
   position: fixed;
   left: 0px;
@@ -78,6 +120,14 @@ body:hover > #trailer {
   transition: opacity 400ms ease;
 }
 
+/* skill badge */
+.skill-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  @apply bg-primary/40 dark:bg-secondary/40;
+  border-radius: 20px;
+}
+
 
 /* ui/ux screen */
 .screen {
@@ -91,36 +141,91 @@ body:hover > #trailer {
 }
 
 
-/* theme switch */
-.line-container {
+/* circadian theme switch */
+.circadian {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  max-width: 1280px;
+  padding: 12px;
+  position: relative;
+  z-index: 45;
+}
+
+@media (min-width: 1600px) {
+  .circadian {
+    margin: 0 auto;
+  }
+}
+
+.hours {
+  display: flex;
+  width: 100%;
+}
+
+.hour {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
   cursor: pointer;
+  transition: opacity .3s ease-in-out;
+}
+
+.line-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .line {
-  position: relative;
+  height: 40px;
   width: 2px;
-  height: 20px; /* Initial height */
-  transition: height 0.3s linear;
-  @apply bg-[#AAAAAA];
+  @apply bg-secondary;
+  transform: translate3d(0, 20px, 0);
+  transition: transform .5s cubic-bezier(0, .49, 0, 1.49), opacity .3s ease-in-out;
+  border-radius: 20px;
 }
 
 .line.day {
-  @apply bg-outline dark:bg-primary;
+  @apply bg-primary;
 }
 
+.hour:hover .line {
+  transform: translateZ(0);
+}
+
+.line.hover {
+  transform: translate3d(0, 10px, 0) !important;
+}
+
+.line.active {
+  transform: translate3d(0, -5px, 0) !important;
+}
+
+
+/* theme icon */
 .theme-icon {
-  width: 56px;
-  height: 56px;
+  top: 0;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  z-index: 50;
   position: absolute;
-  top: -64px;
-  left: -28px;
-  pointer-events: none;
+  transform: translate3d(-50%, -100%, 0);
+  border-radius: 50%;
   background-color: #1f2937;
   background-image: url('../dark.png');
-  background-size: 36px 36px;
-  background-position: center center;
+  background-size: 28px;
+  background-position: center;
   background-repeat: no-repeat;
 }
 

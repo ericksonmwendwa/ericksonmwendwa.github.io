@@ -11,25 +11,27 @@
 </head>
 
 <body class="font-body">
+
   <div id="trailer">
-    <i id="trailer-icon" class="text-lg fa-solid fa-hand-pointer"></i>
+    <i id="trailer-icon" class="fa-solid fa-hand-pointer"></i>
   </div>
-  <div id="app" class="bg-light dark:bg-dark">
+
+  <div id="app" class="bg-light dark:bg-dark text-dark dark:text-light">
     
     <header class="fixed top-0 z-50 w-full">
       <nav class="mt-5 relative flex justify-center">
-        <div id="navbar" class="px-8 lg:px-12 py-4 flex gap-x-6 lg:gap-x-12 lg:text-xl text-dark dark:text-gray-100 bg-primary rounded-full dark:bg-secondary border-2 border-dark dark:border-light">
+        <div id="navbar" class="mx-4 w-full lg:w-1/2 flex justify-center py-4 gap-x-6 lg:gap-x-16 font-mono lg:text-xl text-dark dark:text-gray-100 rounded-full bg-primary dark:bg-secondary border-2 border-dark dark:border-light">
           <a href="#about" class="nav-link interactable" data-type="click">
             About
           </a>
-          <a href="#services" class="nav-link interactable" data-type="click">
-            Services
+          <a href="#experience" class="nav-link interactable" data-type="click">
+            Experience
           </a>
           <a href="#portfolio" class="nav-link interactable" data-type="click">
             Portfolio
           </a>
-          <a href="#contact" class="nav-link interactable" data-type="click">
-            Contact
+          <a href="#theme" class="nav-link interactable" data-type="click">
+            Theme
           </a>
         </div>
       </nav>
@@ -37,117 +39,148 @@
 
     
     <div class="pt-24 container mx-auto px-3 lg:px-8 xl:px-0">
-
+      
       <section id="about">
-        <div class="mt-2 pb-12 rounded-3xl border-4 border-dark dark:border-light">
-          <div class="px-4 py-8 lg:p-10 xl:p-12 text-dark dark:text-light grid grid-cols-1 lg:grid-cols-2 gap-10 justify-around items-center">
+        <div class="mt-2 rounded-3xl border-4 border-dark dark:border-light">
+          <div class="px-4 py-8 lg:p-10 xl:p-12 lg:flex lg:justify-between lg:items-center">
             <div>
-              <p class="text-4xl lg:text-6xl xl:text-8xl font-displayBold">Hello there,<br> I'm Erick</p>
-              <div class="mt-4 lg:mt-8 xl:mt-12 leading-none">
-                <p class="text-xl lg:text-3xl font-semibold font-displayText">A Software Developer, and UI/UX Designer based in Nairobi.</p>
-                <p class="mt-2 lg:mt-5 text-xl lg:text-3xl font-semibold font-displayText">I create solutions and design exhilarating user experiences.</p>
+              <div class="w-full">
+                <span class="mb-8 text-lg lg:text-xl font-mono">Hello, my name is</span>
+                <h2 class="display-heading text-secondary dark:text-primary font-display font-bold">Erickson Mwendwa.</h2>
+                <h3 class="display-heading leading-[0.8] font-display font-bold">
+                  I create digital experiences.
+                </h3>
+              </div>
+              <div class="max-w-xl text-justify">
+                <p class="mt-9 text-lg lg:text-xl leading-snug font-display">
+                  I thrive at the exciting intersection of technology and creativity.
+                  With a background in software development, UI/UX design, and graphics, I bring a unique blend of skills to the digital realm.
+                </p>
+                <a
+                  href="https://ericksonmwendwa.com/resume.pdf" target="_blank" rel="noopener noreferrer"
+                  class="mt-8 relative inline-block text-lg group interactable" data-type="link"
+                >
+                  <span class="relative z-10 block px-5 py-3 overflow-hidden font-medium leading-tight text-dark dark:text-light transition-colors duration-300 ease-out border-2 border-dark dark:border-light rounded-md group-hover:text-light dark:group-hover:text-dark">
+                    <span class="absolute inset-0 w-full h-full px-5 py-3 rounded-md bg-primary dark:bg-secondary"></span>
+                    <span class="absolute left-0 w-64 h-64 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-dark dark:bg-light group-hover:-rotate-180 ease"></span>
+                    <span class="relative">
+                      Check out my resume
+                    </span>
+                  </span>
+                  <span class="absolute bottom-0 right-0 w-full h-12 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-dark dark:bg-light rounded-md group-hover:mb-0 group-hover:mr-0" data-rounded="rounded-xl"></span>
+                </a>
               </div>
             </div>
-            <div>
-              <img id="hero-svg" src="hero-light.svg" alt="erickson mwendwa">
+            <div class="mt-10 lg:mt-0 text-4xl flex lg:flex-col gap-12">
+              <a class="interactable" data-type="link" href="https://github.com/ericksonmwendwa/" target="_blank">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a class="interactable" data-type="link" href="https://linkedin.com/in/erickson-mwendwa" target="_blank">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+              <a class="interactable" data-type="link" href="https://instagram.com/ericksonmwendwa/" target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a class="interactable" data-type="link" href="https://twitter.com/erickmwendwa_/" target="_blank">
+                <i class="fa-brands fa-twitter"></i>
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="services" class="mt-28">
-        <div class="p-4 lg:p-8 text-dark dark:text-light rounded-3xl border-4 border-dark dark:border-light">
-          <span class="text-xl lg:text-3xl font-semibold font-displayText tracking-wider">&lt;services&gt;</span>
-          <div class="xl:ml-5 py-10 xl:px-6 xl:py-20">
-            <div class="grid grid-cols-1 xl:grid-cols-2 gap-5 xl:gap-10">
-              <div class="mt-5 xl:mt-0 flex items-center">
-                <div class="w-64 h-44 xl:w-96 xl:h-64 bg-primary dark:bg-secondary border-4 xl:border-8 rounded-xl border-dark dark:border-light">
-                  <div class="flex justify-start">
-                    <div class="mt-3 mx-2 text-xl xl:text-3xl flex flex-col gap-2 xl:gap-4">
-                      <i class="fa-brands fa-apple"></i>
-                      <i class="fa-brands fa-windows"></i>
-                      <i class="fa-brands fa-linux"></i>
-                      <i class="fa-brands fa-chrome"></i>
-                      <i class="fa-brands fa-internet-explorer"></i>
-                    </div>
-                  </div>
-                </div>
-                <div class="mt-4 xl:mt-8 -mx-24 xl:-mx-36 z-10 w-32 h-40 xl:w-48 xl:h-56 bg-primary dark:bg-secondary border-2 xl:border-4 rounded-xl border-dark dark:border-light">
-                  <div class="flex justify-center">
-                    <div class="mt-1 w-1.5 h-1.5 bg-dark dark:bg-light rounded-full"></div>
-                  </div>
-                  <div class="flex justify-end">
-                    <div class="mt-3 mx-2 text-xl xl:text-2xl flex flex-col gap-2 xl:gap-3">
-                      <i class="fa-brands fa-apple"></i>
-                      <i class="fa-brands fa-android"></i>
-                      <i class="fa-brands fa-chrome"></i>
-                      <i class="fa-brands fa-internet-explorer"></i>
-                    </div>
-                  </div>
-                </div>
-                <div class="mt-20 xl:mt-40 -mx-20 z-20 w-16 h-28 xl:w-20 xl:h-36 bg-primary dark:bg-secondary border-2 rounded-xl border-dark dark:border-light">
-                  <div class="flex justify-center">
-                    <div class="w-6 h-1 bg-dark dark:bg-light rounded-b-sm"></div>
-                  </div>
-                  <div class="mt-3 mx-2 text-lg xl:text-xl flex flex-col gap-2">
-                    <i class="fa-brands fa-apple"></i>
-                    <i class="fa-brands fa-android"></i>
-                    <i class="fa-brands fa-internet-explorer"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="text-justify">
-                <h1 class="text-3xl lg:text-5xl font-display">Web &amp; App Development</h1>
-                <p class="mt-3 text-lg">
-                  As a web and app developer, I am committed to delivering exceptional digital solutions that meet the unique needs of each of my clients.
-                  I specialize in using cutting-edge technologies to build dynamic, user-friendly websites and applications that help businesses thrive in today's competitive market.
-                </p>
-                <p class="mt-3 text-lg">
-                  Whether it's building a custom website from scratch or creating a powerful mobile app, I take pride in my ability to deliver exceptional results on time and within budget.
-                  I work closely with my clients to understand their unique needs and requirements, and I am always available to answer questions and provide support throughout the development process.
-                </p>
-                <p class="mt-3 text-lg">
-                  I understand that my clients' digital presence is critical to the success of their business.
-                  That's why I prioritize quality, reliability, and security in everything I do.
-                  I use the latest tools and technologies to build websites and apps that are not only visually stunning but also fast, secure, and easy to use.
-                </p>
-                <h3 class="mt-5 text-2xl font-displayText tracking-widest">
-                  Join millions of businesses online and beyond.
+
+      <section id="experience" class="mt-28">
+        <div class="p-4 lg:p-8 rounded-3xl border-4 border-dark dark:border-light">
+          <span class="text-xl lg:text-3xl text-dark font-mono font-medium">&lt;experience&gt;</span>
+          <div class="p-5 lg:p-10">
+  
+            <div class="grid grid-cols-1 lg:grid-cols-7 items-center gap-4 lg:gap-8 xl:gap-12">
+              <div class="col-span-1 lg:col-span-3">
+                <h3 class="text-4xl lg:text-5xl font-medium">
+                  MyriadLista Inc.
                 </h3>
+                <h4 class="text-xl lg:text-2xl font-mono">
+                  Software_Developer
+                </h4>
+                <div class="mt-4 flex flex-wrap gap-3" id="myriadlista-skills-container"></div>
+              </div>
+              <div class="col-span-1 lg:col-span-4">
+                <ul class="mt-5 lg:mt-0 px-4 lg:px-0 list-disc text-xl lg:text-lg">
+                  <li>Designed a user-friendly UI/UX system in Figma, translating into an intuitive interface.</li>
+                  <li>Built a responsive web app using modern tools (ReactJS, TailwindCSS, Redux Toolkit).</li>
+                  <li>Backend development with Firebase and NodeJS creating an API to manage data, and authentication.</li>
+                  <li>Extended accessibility through a cross-platform Flutter app integrated with Firebase, ensuring a unified experience.</li>
+                  <li>Configured Firebase Analytics, Crashlytics, and performance monitoring enabling data-driven optimization.</li>
+                  <li>Successfuly launched the app to Google Play Store.</li>
+                </ul>
               </div>
             </div>
-            <div class="mt-20 grid grid-cols-1 xl:grid-cols-2 gap-10">
-              <div class="text-justify">
-                <h1 class="text-5xl font-display">Graphic Design</h1>
-                <p class="mt-3 text-lg">
-                  Whether its a design for a digital or a fine print, I'll help you develop or transform your brand identity.
-                  A brand is not just about the graphics or the logo, its about the company strategy and mission, the visual message it want to portray.
-                </p>
-                <p class="mt-3 text-lg">
-                  Services include but not limited to, motion graphics, logos, infographics, posters, banners, email templates, business cards, letterheads, social media ads and images for websites and blogs.
-                </p>
-                <p class="mt-3 text-lg">
-                  Keeping up with the world of design is critical for a brand.
-                </p>
-                <p class="mt-3 text-lg">
-                  Gain a fresh perspective on your business with the unique insight of a graphic design professional.
-                </p>
-                <h3 class="mt-5 text-2xl font-displayText tracking-widest">
-                  Breathtaking designs made to inspire.
+            
+            <div class="mt-12 lg:mt-20 grid grid-cols-1 lg:grid-cols-7 items-center gap-4 lg:gap-8 xl:gap-12">
+              <div class="col-span-1 lg:col-span-3">
+                <h3 class="text-4xl lg:text-5xl font-medium">
+                  Urban Dimensions
                 </h3>
+                <h4 class="text-xl lg:text-2xl font-mono">
+                  Web/Graphics_Designer
+                </h4>
+                <div class="mt-4 flex flex-wrap gap-3" id="urban-skills-container"></div>
               </div>
-              <div class="h-72 lg:h-96 xl:h-full flex justify-center items-center">
-                <div class="absolute rounded-full border-[24px] lg:border-[36px] xl:border-[28px] border-outline dark:border-[#FFFFF3] w-72 h-72 lg:w-96 lg:h-96 xl:w-[500px] xl:h-[500px]"></div>
-                <div class="absolute rounded-full border-[20px] lg:border-[36px] xl:border-[36px] border-variant dark:border-[#009FB7] w-56 h-56 lg:w-72 lg:h-72 xl:w-[420px] xl:h-[420px]"></div>
-                <div class="absolute rounded-full border-[20px] lg:border-[28px] xl:border-[40px] border-tertiaryDark dark:border-[#FFE66D] w-40 h-40 lg:w-52 lg:h-52 xl:w-80 xl:h-80"></div>
-                <div class="absolute rounded-full border-[16px] lg:border-[20px] xl:border-[36px] border-primary dark:border-[#00A676] w-24 h-24 lg:w-32 lg:h-32 xl:w-48 xl:h-48"></div>
-                <div class="rounded-full bg-[#5E0035] dark:bg-[#F15156] w-8 h-8 lg:w-12 lg:h-12 xl:w-20 xl:h-20"></div>
+              <div class="col-span-1 lg:col-span-4">
+                <ul class="mt-5 lg:mt-0 px-4 lg:px-0 list-disc text-xl lg:text-lg">
+                  <li>Development of a company website, using HTML, TailwindCSS, and JavaScript that communicates brand essence and services cohesively.</li>
+                  <li>Established a set of brand colors, ensuring consistency across all visual assets and communications.</li>
+                  <li>Modernized logo while preserving original identity.</li>
+                  <li>Planned the design and layout of the company profile, creating an informative document.</li>
+                  <li>Design and typesetting of reports, formatting complex data for readability and comprehension.</li>
+                </ul>
               </div>
             </div>
+            
+            <div class="mt-12 lg:mt-20 grid grid-cols-1 lg:grid-cols-7 items-center gap-4 lg:gap-8 xl:gap-12">
+              <div class="col-span-1 lg:col-span-3">
+                <h3 class="text-4xl lg:text-5xl font-medium">
+                  Zebra Paints
+                </h3>
+                <h4 class="text-xl lg:text-2xl font-mono">
+                  Graphics_Designer
+                </h4>
+                <div class="mt-4 flex flex-wrap gap-3" id="zebra-skills-container"></div>
+              </div>
+              <div class="col-span-1 lg:col-span-4">
+                <ul class="mt-5 lg:mt-0 px-4 lg:px-0 list-disc text-xl lg:text-lg">
+                  <li>Designed a logo that effectively represented the company in various contexts.</li>
+                  <li>Designed eye-catching and informative product labels for Zebra Paints&apos; diverse range of offerings</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="mt-12 lg:mt-20 grid grid-cols-1 lg:grid-cols-7 items-center gap-4 lg:gap-8 xl:gap-12">
+              <div class="col-span-1 lg:col-span-3">
+                <h3 class="text-4xl lg:text-5xl font-medium">
+                  Freelance
+                </h3>
+                <h4 class="text-xl lg:text-2xl font-mono">
+                  Web_Developer
+                </h4>
+                <div class="mt-4 flex flex-wrap gap-3" id="freelance-skills-container"></div>
+              </div>
+              <div class="col-span-1 lg:col-span-4">
+                <ul class="mt-5 lg:mt-0 px-4 lg:px-0 list-disc text-xl lg:text-lg">
+                  <li>Developed a responsive and visually engaging website for Athena Technologies.</li>
+                  <li>Designed a website for Extra Paints.</li>
+                </ul>
+              </div>
+            </div>
+  
           </div>
-          <span class="text-xl lg:text-3xl font-semibold font-displayText tracking-wider">&lt;/services&gt;</span>
+          <span class="text-xl lg:text-3xl text-dark font-mono font-medium">&lt;/experience&gt;</span>
         </div>
       </section>
+
+      
+      
 
       <section id="portfolio" class="mt-28">
         <div class="p-4 lg:p-8 text-dark dark:text-light rounded-3xl border-4 border-dark dark:border-light">
@@ -337,73 +370,13 @@
         </div>
       </section>
 
-      <section id="contact" class="mt-28">
-        <div class="p-4 lg:p-8 text-dark dark:text-light rounded-3xl border-4 border-dark dark:border-light">
-          <span class="text-xl lg:text-3xl font-semibold font-displayText tracking-wider">&lt;contact&gt;</span>
-          <div class="xl:ml-5 py-10 xl:px-6">
-            <div>
-              <h1 class="text-4xl font-displayBold">
-                Have a project for me?
-                <span class="text-4xl font-display text-outline dark:text-primary">
-                  let's work on it
-                </span>
-              </h1>
-              <p class="mt-2 text-xl">
-                I'm currently looking for new opportunities, my inbox is always open.
-                Whether you have a question or just want to say hi, I'll try my best to get back to you!
-              </p>
-              <div class="mt-10 grid grid-cols-1 xl:grid-cols-2 gap-10">
-                <a href="tel://+254724302515" class="flex items-center gap-5">
-                  <div class="flex justify-center items-center h-16 w-16 bg-outlineLight dark:bg-outlineDark border-4 border-dark dark:border-light rounded-full">
-                    <i class="fa-solid fa-phone text-3xl"></i>
-                  </div>
-                  <span class="text-2xl font-medium">+254 724 302 515</span>
-                </a>
-                <a href="mailto:erickmwendwa23@gmailcom" class="flex items-center gap-5">
-                  <div class="flex justify-center items-center h-16 w-16 bg-outlineLight dark:bg-outlineDark border-4 border-dark dark:border-light rounded-full">
-                    <i class="fa-solid fa-envelope text-3xl"></i>
-                  </div>
-                  <span class="text-2xl font-medium tracking-wider">erickmwendwa23</span>
-                </a>
-                <a href="https://github.com/ericksonmwendwa/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-5 interactable" data-type="link">
-                  <div class="flex justify-center items-center w-16 h-16 bg-outlineLight dark:bg-outlineDark border-4 border-dark dark:border-light rounded-full">
-                    <i class="fa-brands fa-github text-3xl"></i>
-                  </div>
-                  <span class="text-2xl font-medium tracking-wider">ericksonmwendwa</span>
-                </a>
-                <a href="https://linkedin.com/in/erickson-mwendwa" target="_blank" rel="noopener noreferrer" class="flex items-center gap-5 interactable" data-type="link">
-                  <div class="flex justify-center items-center w-16 h-16 bg-outlineLight dark:bg-outlineDark border-4 border-dark dark:border-light rounded-full">
-                    <i class="fa-brands fa-linkedin-in text-3xl"></i>
-                  </div>
-                  <span class="text-2xl font-medium tracking-wider">erickson-mwendwa</span>
-                </a>
-                <a href="https://twitter.com/erickmwendwa_/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-5 interactable" data-type="link">
-                  <div class="flex justify-center items-center w-16 h-16 bg-outlineLight dark:bg-outlineDark border-4 border-dark dark:border-light rounded-full">
-                    <i class="fa-brands fa-twitter text-3xl"></i>
-                  </div>
-                  <span class="text-2xl font-medium tracking-wider">erickmwendwa_</span>
-                </a>
-                <a href="https://instagram.com/ericksonmwendwa/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-5 interactable" data-type="link">
-                  <div class="flex justify-center items-center w-16 h-16 bg-outlineLight dark:bg-outlineDark border-4 border-dark dark:border-light rounded-full">
-                    <i class="fa-brands fa-instagram text-3xl"></i>
-                  </div>
-                  <span class="text-2xl font-medium tracking-wider">ericksonmwendwa</span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <span class="text-xl lg:text-3xl font-semibold font-displayText tracking-wider">&lt;/contact&gt;</span>
-        </div>
-      </section>
+      
+      
+      
 
-      <section class="my-8">
-        <div
-          id="circadian"
-          class="
-            relative mt-40 pt-0 pb-12
-            flex justify-between items-center w-full h-20
-          "
-        >
+      <section id="theme" class="mt-28">
+        <div class="circadian">
+          <div id="hours" class="hours pb-16"></div>
         </div>
       </section>
 

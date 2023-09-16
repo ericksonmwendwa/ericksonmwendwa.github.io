@@ -10,12 +10,7 @@ var athenaLogo = document.getElementById("athena-logo");
 var lightAthenaLogoSrc = "athena-logo_light.svg";
 var darkAthenaLogoSrc = "athena-logo_dark.svg";
 
-var heroSvg = document.getElementById("hero-svg");
-var lightHeroSvg = "hero-light.svg";
-var darkHeroSvg = "hero-dark.svg";
-
 function refreshTheme(svg, image, logo) {
-  heroSvg.src = svg;
   myriadlistaImage.src = image;
   athenaLogo.src = logo;
 }
@@ -23,10 +18,10 @@ function refreshTheme(svg, image, logo) {
 function applyTheme() {
   if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
     document.documentElement.classList.add('dark');
-    refreshTheme(darkHeroSvg, darkMyriadlistaImageSrc, darkAthenaLogoSrc);
+    refreshTheme(darkMyriadlistaImageSrc, darkAthenaLogoSrc);
   } else {
     document.documentElement.classList.remove('dark');
-    refreshTheme(lightHeroSvg, lightMyriadlistaImageSrc, lightAthenaLogoSrc);
+    refreshTheme(lightMyriadlistaImageSrc, lightAthenaLogoSrc);
   }
 }
 
@@ -78,13 +73,10 @@ if (usingMouse) {
   trailer.style.display = "grid";
 
   const animateTrailer = (e, interacting) => {
-    const x = e.clientX - trailer.offsetWidth / 2,
-          y = e.clientY - trailer.offsetHeight / 2;
-    
+    const x = e.clientX - trailer.offsetWidth / 2, y = e.clientY - trailer.offsetHeight / 2;
     const keyframes = {
       transform: `translate(${x}px, ${y}px) scale(${interacting ? 4 : 1})`
     }
-    
     trailer.animate(keyframes, { 
       duration: 800, 
       fill: "forwards" 
@@ -101,15 +93,12 @@ if (usingMouse) {
   }
 
   window.onmousemove = e => {
-    const interactable = e.target.closest(".interactable"),
-          interacting = interactable !== null;
-    
+    const interactable = e.target.closest(".interactable"), interacting = interactable !== null;
     const cursorSvg = document.getElementById("trailer-icon");
     
     animateTrailer(e, interacting);
-    
     trailer.dataset.type = interacting ? interactable.dataset.type : "";
-    
+
     if(interacting) {
       if (trailer.dataset.type === "link") {
         cursorSvg.classList.replace("fa-hand-pointer", getTrailerClass(interactable.dataset.type));
@@ -120,6 +109,7 @@ if (usingMouse) {
   }
   
 }
+
 
 
 // navbar
@@ -139,6 +129,30 @@ navbar.addEventListener("click", function (e) {
     }
   }
 });
+
+
+// experience
+const myriadlista_skills = ['Firebase', 'Flutter', 'ReactJS', 'NodeJS', 'TailwindCSS', 'Redux Toolkit', 'Figma'];
+const urban_skills = ['HTML', 'TailwindCSS', 'JavaScript', 'Figma', 'Adobe Illustrator', 'Adobe Photoshop', 'Adobe InDesign'];
+const zebra_skills = ['Adobe Illustrator', 'Adobe Photoshop'];
+const freelance_skills = ['HTML', 'TailwindCSS', 'JavaScript'];
+
+function displaySkills(containerId, skillsArray) {
+  const skillsContainer = document.getElementById(containerId);
+
+  skillsArray.forEach((skill) => {
+      const skillBadge = document.createElement("span");
+      skillBadge.textContent = skill;
+      skillBadge.className = "skill-badge";
+      skillsContainer.appendChild(skillBadge);
+  });
+}
+
+// Call the function to display skills for each group
+displaySkills("myriadlista-skills-container", myriadlista_skills);
+displaySkills("urban-skills-container", urban_skills);
+displaySkills("zebra-skills-container", zebra_skills);
+displaySkills("freelance-skills-container", freelance_skills);
 
 
 // portfolio image scroll
@@ -183,120 +197,114 @@ scrollContainer("extrapaints");
 // circadian theme switch
 document.addEventListener("DOMContentLoaded", function () {
 
-  const circadian = document.getElementById("circadian");
+  const hours = document.getElementById("hours");
   for (let i = 0; i < 24; i++) {
+    const hour = document.createElement("div");
+    hour.classList.add("hour");
+    hour.setAttribute("role", "button");
+    hour.setAttribute("tabindex", "-1");
+    
     const lineContainer = document.createElement("div");
-    lineContainer.classList.add("line-container", "w-fit", "lg:w-full", "px-1", "lg:px-3", "xl:px-6");
+    lineContainer.classList.add("line-container");
     // add data attribute to line container for night mode
     lineContainer.setAttribute("data-theme", "dark");
+    lineContainer.setAttribute("data-type", "theme");
+    
     const line = document.createElement("div");
     line.classList.add("line");
     if (i > 6 && i < 18) {
       line.classList.add("day");
       lineContainer.setAttribute("data-theme", "light");
     }
+    
+    hour.id = `hour-${i}`;
+    lineContainer.id = `line-container-${i}`;
     line.id = `line-${i}`;
+    
     lineContainer.appendChild(line);
-    circadian.appendChild(lineContainer);
+    hour.appendChild(lineContainer);
+    hours.appendChild(hour);
   }
 
-
-  const increaseHeight = (element, amount) => {
-    const initialHeight = parseInt(element.style.height, 10) || 20;
-    element.style.height = `${initialHeight + amount}px`;
-  };
-
-  const decreaseHeight = (element, amount) => {
-    const initialHeight = parseInt(element.style.height, 10) || 20;
-    element.style.height = `${initialHeight - amount}px`;
-  };
 
   let currentLine;
 
-  const setCurrentLine = (line) => {
-    increaseHeight(line, 16);
-    line.style.bottom = "16px";
-
-    // Add an icon on top of the line
+  function createIcon(currentDiv) {
     const icon = document.createElement("div");
     icon.id = "theme-icon";
-    icon.classList.add("theme-icon", "bg-white", "rounded-full", "absolute", "bottom-0", "left-1/2", "transform", "-translate-x-1/2", "translate-y-1/2");
-    line.appendChild(icon);
+    icon.classList.add("theme-icon");
+    currentDiv.appendChild(icon);
   }
 
-  const setCurrentLineOnClick = (lineIndex) => {
-    const newCurrentLine = document.getElementById(`line-${lineIndex}`);
-    if (currentLine !== newCurrentLine) {
+  function removeIcon() {
+    const currentIcon = document.getElementById("theme-icon");
+    currentIcon.remove();
+  }
 
-      currentLine.removeChild(currentLine.lastChild);
-      decreaseHeight(currentLine, 16);
-      currentLine.style.bottom = "0px";
-      
-      currentLine = newCurrentLine;
-
-      setCurrentLine(currentLine);
-    }
-  };
+  const setCurrentLine = (hour) => {
+    currentLine = document.getElementById(`line-${hour}`);
+    const currentHour = document.getElementById(`hour-${hour}`);
+    currentLine.classList.add("active");
+    createIcon(currentHour);
+  }
 
   // set default current line
   const setDefaultCurrentLine = () => {
-    const currentHour = new Date().getHours();
-    const defaultCurrentLine = document.getElementById(`line-${currentHour}`);
-    currentLine = defaultCurrentLine;
-    setCurrentLine(currentLine);
+    const thisHour = new Date().getHours();
+    setCurrentLine(thisHour);
   };
 
   // Call setDefaultCurrentLine initially to set the default current line
   setDefaultCurrentLine();
+
+  const setCurrentLineOnClick = (hour, oldLine) => {
+    const newCurrentLine = document.getElementById(`line-${hour}`);
+    if (currentLine !== newCurrentLine) {
+      oldLine.classList.remove("active");
+      removeIcon();
+      currentLine = newCurrentLine;
+      setCurrentLine(hour);
+    }
+  };
 
 
   const lineContainer = document.getElementsByClassName("line-container");
   const lines = document.getElementsByClassName("line");
 
   for (let i = 0; i < lines.length; i++) {
-
-    // check for click event
+    
     lineContainer[i].addEventListener("click", function () {
-      // get the data-theme attribute
       const theme = lineContainer[i].getAttribute("data-theme");
-      // set as current line
-      setCurrentLineOnClick(i);
-      // switch theme
+      setCurrentLineOnClick(i, currentLine);
       switchTheme('click', theme);
     });
 
-
     lineContainer[i].addEventListener("mouseenter", function () {
-      // Enlarge the hovered line by 7px at the top
-      increaseHeight(lines[i], 32);
-
-      // Enlarge the immediate left line by 4px at the top
-      if (i > 0) {
-        increaseHeight(lines[i - 1], 16);
+      // Remove "hover" class from all line-container elements
+      for (let j = 0; j < lineContainer.length; j++) {
+        lines[j].classList.remove("hover");
       }
-
-      // Enlarge the immediate right line by 4px at the top
+  
+      if (i > 0) {
+        lines[i - 1].classList.add("hover"); // Add to the previous element
+      }
       if (i < lines.length - 1) {
-        increaseHeight(lines[i + 1], 16);
+        lines[i + 1].classList.add("hover"); // Add to the next element
       }
     });
-
+  
+    // Add a mouseleave event listener to remove the "hover" class when mouse leaves
     lineContainer[i].addEventListener("mouseleave", function () {
-      // Reset the height of the hovered line and the immediate left and right lines
-      decreaseHeight(lines[i], 32);
-
-      // Reset the immediate left line
       if (i > 0) {
-        decreaseHeight(lines[i - 1], 16);
+        lines[i - 1].classList.remove("hover");
       }
-
-      // Reset the immediate right line
       if (i < lines.length - 1) {
-        decreaseHeight(lines[i + 1], 16);
+        lines[i + 1].classList.remove("hover");
       }
     });
 
   }
+
 
 });
 

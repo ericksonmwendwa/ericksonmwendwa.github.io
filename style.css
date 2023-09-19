@@ -83,7 +83,6 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* custom heading */
 .display-heading {
-  margin: 0px;
   font-size: clamp(40px, 8vw, 80px);
 }
 
@@ -120,14 +119,6 @@ body:hover > #trailer {
   transition: opacity 400ms ease;
 }
 
-/* skill badge */
-.skill-badge {
-  display: inline-block;
-  padding: 6px 14px;
-  @apply bg-primary/40 dark:bg-secondary/40;
-  border-radius: 20px;
-}
-
 
 /* ui/ux screen */
 .screen {
@@ -142,19 +133,6 @@ body:hover > #trailer {
 
 
 /* elastic effect */
-.elastic {
-  position: absolute;
-  /* width: 200px; */
-}
-
-.elastic.elasticbox-vertical {
-  z-index: 30;
-  -webkit-transform-origin: 50% 100%;
-  -ms-transform-origin: 50% 100%;
-  transform-origin: 50% 100%;
-}
-
-
 .elastic-vertical {
   position: absolute;
   width: 120px;
@@ -205,8 +183,6 @@ body:hover > #trailer {
   -ms-transform-origin: 100% 50%;
   transform-origin: 100% 50%;
 }
-
-
 
 canvas {
   display: inline-block;

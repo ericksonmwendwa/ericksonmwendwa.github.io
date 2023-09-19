@@ -6,25 +6,21 @@ var myriadlistaImage = document.getElementById("myriadlista-img");
 var darkMyriadlistaImageSrc = "myriadlista-dark.png";
 var lightMyriadlistaImageSrc = "myriadlista-light.png";
 
-var athenaLogo = document.getElementById("athena-logo");
-var lightAthenaLogoSrc = "athena-logo_light.svg";
-var darkAthenaLogoSrc = "athena-logo_dark.svg";
-
-function refreshTheme(image, logo) {
+function refreshTheme(image) {
   myriadlistaImage.src = image;
-  athenaLogo.src = logo;
 }
+
 
 let isDarkMode;
 
 function applyTheme() {
   if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
     document.documentElement.classList.add('dark');
-    refreshTheme(darkMyriadlistaImageSrc, darkAthenaLogoSrc);
+    refreshTheme(darkMyriadlistaImageSrc);
     isDarkMode = true;
   } else {
     document.documentElement.classList.remove('dark');
-    refreshTheme(lightMyriadlistaImageSrc, lightAthenaLogoSrc);
+    refreshTheme(lightMyriadlistaImageSrc);
     isDarkMode = false;
   }
 }
@@ -49,7 +45,7 @@ function switchTheme(event, setMode) {
     }
   } else {
     // Re-apply theme on page load
-    // applyTheme();
+    applyTheme();
   }
 }
 

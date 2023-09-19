@@ -141,6 +141,79 @@ body:hover > #trailer {
 }
 
 
+/* elastic effect */
+.elastic {
+  position: absolute;
+  /* width: 200px; */
+}
+
+.elastic.elasticbox-vertical {
+  z-index: 30;
+  -webkit-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+}
+
+
+.elastic-vertical {
+  position: absolute;
+  width: 120px;
+  height: 100%;
+}
+
+.elastic-vertical.left {
+  left: 0;
+  top: 0;
+  bottom: auto;
+}
+
+.elastic-vertical.right {
+  right: 0;
+  top: 0;
+  bottom: auto;
+}
+
+.elastic-vertical.elasticbox-vertical {
+  z-index: 30;
+  -webkit-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+}
+
+
+.elastic-horizontal {
+  position: absolute;
+  height: 120px;
+  width: 100%;
+}
+
+.elastic-horizontal.top {
+  top: 0;
+  left: 0;
+  right: auto;
+}
+
+.elastic-horizontal.bottom {
+  bottom: 0;
+  left: 0;
+  right: auto;
+}
+
+.elastic-horizontal.elasticbox-horizontal {
+  z-index: 30;
+  -webkit-transform-origin: 100% 50%;
+  -ms-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+}
+
+
+
+canvas {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+
 /* circadian theme switch */
 .circadian {
   display: flex;

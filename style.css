@@ -132,6 +132,44 @@ body:hover > #trailer {
 }
 
 
+/* staggered */
+.staggered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+
+.staggered-shadow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  @apply m-1.5 lg:m-3 dark:m-3 dark:lg:m-4 bg-dark dark:bg-gray-900;
+  transition: margin 300ms ease-in-out;
+}
+
+
+.box {
+  @apply bg-primary dark:bg-secondary;
+  position: relative;
+}
+
+.box:before {
+  padding-top: 100%;
+  content:"";
+  display:block;
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+
+
+
 /* elastic effect */
 .elastic-vertical {
   position: absolute;

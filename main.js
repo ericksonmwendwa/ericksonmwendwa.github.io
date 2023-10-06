@@ -117,7 +117,7 @@ if (usingMouse) {
 // stagger content
 // about headline
 const aboutHTML = `
-  <div class="px-1 lg:px-2 text-5xl lg:text-7xl text-dark dark:text-light font-mono font-medium">
+  <div class="stagger-headline">
     about
   </div>
 `;
@@ -129,7 +129,7 @@ createStagger({
 
 // experience headline
 const experienceHTML = `
-  <div class="px-1 lg:px-2 text-5xl lg:text-7xl text-dark dark:text-light font-mono font-medium">
+  <div class="stagger-headline">
     experience
   </div>
 `;
@@ -141,7 +141,7 @@ createStagger({
 
 // projects headline
 const projectsHTML = `
-  <div class="px-1 lg:px-2 text-5xl lg:text-7xl text-dark dark:text-light font-mono font-medium">
+  <div class="stagger-headline">
     projects
   </div>
 `;

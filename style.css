@@ -133,13 +133,16 @@ body:hover > #trailer {
 
 
 /* staggered */
+.stagger-headline {
+  @apply px-1 lg:px-2 text-5xl lg:text-7xl text-dark dark:text-light font-mono font-medium;
+}
+
 .staggered {
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: visible;
 }
-
 
 .staggered-shadow {
   position: absolute;
@@ -157,8 +160,8 @@ body:hover > #trailer {
 
 .box:before {
   padding-top: 100%;
-  content:"";
-  display:block;
+  content: "";
+  display: block;
 }
 
 .content {
